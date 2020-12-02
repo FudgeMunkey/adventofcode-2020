@@ -9,14 +9,14 @@ import sys
 TARGET = 2020
 
 
-def check(low, high):
-    for i in low:
-        for j in low:
+def check(low_list, high_list):
+    for i in low_list:
+        for j in low_list:
             if i == j:
                 # Skip the same value (assume no duplicates)
                 continue
 
-            for k in high:
+            for k in high_list:
                 my_sum = i + j + k
 
                 if my_sum > TARGET:
@@ -27,16 +27,16 @@ def check(low, high):
                     sys.exit(0)
 
 
-def split_data(data, split_point):
-    low = []
-    high = []
-    for d in data:
+def split_data(data_list, split_point):
+    low_list = []
+    high_list = []
+    for d in data_list:
         if d < split_point:
-            low.append(d)
+            low_list.append(d)
         else:
-            high.append(d)
+            high_list.append(d)
 
-    return low, high
+    return low_list, high_list
 
 
 if __name__ == "__main__":
